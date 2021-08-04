@@ -4,7 +4,7 @@ client/dist/*.txt
 client/dist/*.svg
 node_modules/
 .env
-server/googlecreds.json
+googlecreds.json
 .vscode
 node_modules
 .env_old

@@ -4,7 +4,7 @@ const {Storage} = require('@google-cloud/storage');
 const bucketName = "burrow-bucket";
 
 // Creates a client
-gstorage = new Storage({keyFilename: "server/googlecreds.json"});
+gstorage = new Storage({keyFilename: "/googlecreds.json"});
 
 const uploadFile = async (filename) => {
   // Uploads a local file to the bucket
