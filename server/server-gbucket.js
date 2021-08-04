@@ -1,10 +1,10 @@
 let gstorage;
 // Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage');
-const bucketName = "burrow-bucket";
+const bucketName = "burrow-pictures";
 
 // Creates a client
-gstorage = new Storage({keyFilename: "/googlecreds.json"});
+gstorage = new Storage({keyFilename: "googlecreds.json"});
 
 const uploadFile = async (filename) => {
   // Uploads a local file to the bucket
