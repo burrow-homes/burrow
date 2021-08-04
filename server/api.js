@@ -188,6 +188,7 @@ router.post("/deletelisting", (req, res) => {
 
 router.post("/initsocket", (req, res) => {
   // do nothing if user not logged in
+  console.log(req.body);
   if (req.user) socket.addUser(req.user, socket.getSocketFromSocketID(req.body.socketid));
   res.send({});
 });

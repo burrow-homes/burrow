@@ -15,7 +15,11 @@ const getUserFromSocketID = (socketid) => {
   }
   return socketToUserMap[socketid];
 };
-const getSocketFromSocketID = (socketid) => io.sockets.connected[socketid];
+const getSocketFromSocketID = (socketid) => {
+  console.log("trying to get socket from socket id");
+  //console.log(io.sockets);
+  io.sockets.sockets.get(socketid);
+}
 
 const addUser = (user, socket) => {
   const oldSocket = userToSocketMap[user._id];
@@ -37,6 +41,7 @@ const removeUser = (user, socket) => {
 
 module.exports = {
   init: (http) => {
+    console.log("socket initialization");
     io = require("socket.io")(http);
 
     io.on("connection", (socket) => {
