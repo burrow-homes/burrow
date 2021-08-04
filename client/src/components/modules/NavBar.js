@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./NavBar.css";
 import "../../utilities.css";
 import Popup from "reactjs-popup";
+import 'reactjs-popup/dist/index.css';
 import LoginPage from "../pages/LoginPage";
 import RegistrationPage from "../pages/RegistrationPage";
 import { Link,  navigate } from "@gatsbyjs/reach-router";

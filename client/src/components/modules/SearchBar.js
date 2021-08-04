@@ -2,8 +2,29 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import "../../utilities.css";
 import "./SearchBar.css";
-import { get, g_places_api_url } from "../../utilities";
+import { g_places_api_url } from "/g_apikey";
+import {get} from "../../utilities";
+import Helmet from "react-helmet";
+
 //import Script from "react-load-script";
+
+const loadGoogleMaps = (callback) => {
+  const existingScript = document.getElementById('googleMaps');
+
+  if (!existingScript) {
+    const script = document.createElement('script');
+    script.src = g_places_api_url;
+    script.id = 'googleMaps';
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      if (callback) callback();
+    };
+  }
+
+  if (existingScript && callback) callback();
+};
+
 
 /* class SearchBar extends Component {
 
@@ -163,9 +184,22 @@ class GoogleSearchBar extends Component {
     this.state = {
       place: '',
       query: this.props.text || '',
+      googleLoaded: false,
+      googleLoading: false
     };
     this.handleScriptLoad = this.handleScriptLoad.bind(this);
     this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
+  }
+
+  UNSAFE_componentWillMount() {
+    if(this.googleLoading != true) {
+      this.setState({googleLoading: true});
+      loadGoogleMaps(()=>{
+        this.setState({googleLoaded: true});
+        this.handleScriptLoad();
+      });
+    }
+    this.setState({googleLoading: true});
   }
 
   handleScriptLoad () {
@@ -176,7 +210,8 @@ class GoogleSearchBar extends Component {
     // Initialize Google Autocomplete
     /*global google*/ // To disable any eslint 'google not defined' errors
     this.autocomplete = new google.maps.places.Autocomplete(
-      document.getElementById(this.props.searchBarId)
+      document.getElementById(this.props.searchBarId),
+      options
     );
 
     // Avoid paying for data that you don't need by restricting the set of
@@ -217,13 +252,11 @@ class GoogleSearchBar extends Component {
   }
 
   render() {
-    /*
     return (
       <div>
-        <Script
-          url={g_places_api_url}
-          onLoad={this.handleScriptLoad}
-        />
+      <Helmet>
+        <script src={g_places_api_url}></script>
+      </Helmet>
         <input id={this.props.searchBarId}
           placeholder="Enter location..."
           onChange={(e) => {
@@ -239,10 +272,6 @@ class GoogleSearchBar extends Component {
         />
       </div>
     );
-    */
-   return(
-     <div/>
-   );
   }
 }
 GoogleSearchBar.propTypes = {

@@ -23,7 +23,7 @@ class MapComponent extends Component {
     if (!this.state.mapIsLoaded) {
       if (typeof google !== 'undefined') {
         this.handleScriptLoad();
-        this.state.mapIsLoaded = true;
+        this.setState({mapIsLoaded: true});
       }
     } else {
       if (this.props.newCenter) {

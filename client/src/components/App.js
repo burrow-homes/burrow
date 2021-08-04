@@ -13,6 +13,8 @@ import MainPage from "./pages/MainPage.js";
 import ProfilePage from "./pages/ProfilePage";
 import InboxPage from "./pages/InboxPage.js";
 import "./App.css";
+import Helmet from "react-helmet";
+import { g_places_api_url } from "../../../g_apikey";
 
 
 /**

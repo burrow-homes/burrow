@@ -3,12 +3,14 @@ import "../../utilities.css";
 import "../pages/ProfilePage.css";
 //import moment from "moment";
 import { get, post } from "../../utilities";
-import { genders} from "./enums";
+//import { genders} from "./enums";
 import "./ProfilePicUploader.css";
 import ListingsFast from "./ListingsFast";
 import axios from 'axios';
-import ReactCrop from 'react-image-crop';
+//import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
+import AcctIcon from "/client/src/assets/account.png"
+import PhotoUploadIcon from "/client/src/assets/photograph.svg";
 
 class UserSettings extends Component {
   constructor(props) {
@@ -104,14 +106,14 @@ class UserSettings extends Component {
           <div className="UserSettings-photoContainer">
             <div className="UserSettings-photoUploadContainer">
             <img className ="UserSettings-photo" 
-              src={this.state.profilePicURL || "/account.png"}
+              src={this.state.profilePicURL || AcctIcon}
             />
             {this.state.uploading ? 
               <span className ="UserSettings-uploading">uploading...</span>
               :
               <img className = {`camerasvg ${editMode ? "UserSettings-photoYou" : ""}`} onClick={() => {
                 if (editMode)
-                  document.getElementById("uploadphoto").click(); }} src = "/photograph.svg" width = "15px"
+                  document.getElementById("uploadphoto").click(); }} src = {PhotoUploadIcon} width = "15px"
             />} 
             </div>
             <input className="upload-btn-wrapper" id="uploadphoto" type="file" name="file" accept="image/*" onChange={this.handleChange}/>

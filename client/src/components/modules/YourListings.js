@@ -3,6 +3,7 @@ import "../../utilities.css";
 import "../pages/ProfilePage.css";
 import ListingsFast from "./ListingsFast";
 import {get, post} from "../../utilities";
+import SadBunnyIcon from "/client/src/assets/sad_bunny.png";
 
 class YourListings extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class YourListings extends Component {
       <div className="YourListings-container">
         {(this.state.usersListings.length === 0) ? <div className="YourListings-container">
           No listings yet!
-          <img src = "/sad bunny.png" width = "30%"/>
+          <img src = {SadBunnyIcon} width = "30%"/>
         </div> : <ListingsFast displayedListings={this.state.usersListings} editDeletePerms={this.state.isYou}/>}
       </div>
     );
