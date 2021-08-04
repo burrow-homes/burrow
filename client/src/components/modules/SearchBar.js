@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "../../utilities.css";
 import "./SearchBar.css";
 import { get, g_places_api_url } from "../../utilities";
-import Script from "react-load-script";
+//import Script from "react-load-script";
 
 /* class SearchBar extends Component {
 
@@ -217,6 +217,7 @@ class GoogleSearchBar extends Component {
   }
 
   render() {
+    /*
     return (
       <div>
         <Script
@@ -238,6 +239,10 @@ class GoogleSearchBar extends Component {
         />
       </div>
     );
+    */
+   return(
+     <div/>
+   );
   }
 }
 GoogleSearchBar.propTypes = {

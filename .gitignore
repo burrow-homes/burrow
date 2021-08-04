@@ -1,6 +1,10 @@
-client/dist/bundle.js
+client/dist/*.js
+client/dist/*.png
+client/dist/*.txt
+client/dist/*.svg
 node_modules/
 .env
 server/googlecreds.json
 .vscode
 node_modules
+.env_old

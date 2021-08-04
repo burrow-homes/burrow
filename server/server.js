@@ -23,7 +23,7 @@ const http = require("http");
 const express = require("express"); // backend framework for our node server.
 const mongoose = require("mongoose"); // library to connect to MongoDB
 const session = require("express-session"); // library that stores info about each connected user
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
 
 require("dotenv").config();
 
@@ -64,7 +64,10 @@ app.use(express.json());
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    store: new MongoStore({ mongooseConnection: mongoose.connection, collection: 'sessions' }),
+    store: MongoStore.create({ 
+      mongoUrl: mongoConnectionURL,
+      collectionName: 'sessions'
+    }),
     resave: false,
     saveUninitialized: false,
     ttl: 60 * 60 // = 1 hour

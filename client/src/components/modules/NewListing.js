@@ -4,8 +4,8 @@ import { get, post } from "../../utilities";
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {GoogleSearchBar} from "./SearchBar.js";
-import MapComponent from "./Map";
-import {navigate} from '@reach/router';
+//import MapComponent from "./Map";
+//import {navigate} from "@gatsbyjs/reach-router";
 
 class NewListing extends Component {
 

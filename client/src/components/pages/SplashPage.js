@@ -3,7 +3,7 @@ import {Tabs} from "../modules/Tabs.js";
 import {GoogleSearchBar} from "../modules/SearchBar.js";
 import "./SplashPage.css";
 import "../../utilities.css";
-import { Link } from "@reach/router";
+import { Link } from "@gatsbyjs/reach-router";
 import {listing_type} from "../modules/enums";
 import { post, get } from "../../utilities.js";
 

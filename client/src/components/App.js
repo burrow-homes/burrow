@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router } from "@reach/router";
+import { Router } from "@gatsbyjs/reach-router";
 
 import "../utilities.css";
 
@@ -13,6 +13,7 @@ import MainPage from "./pages/MainPage.js";
 import ProfilePage from "./pages/ProfilePage";
 import InboxPage from "./pages/InboxPage.js";
 import "./App.css";
+
 
 /**
  * Define the "App" component as a class.

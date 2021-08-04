@@ -22,12 +22,11 @@ const outputDir = path.resolve(__dirname, "client", "dist");
 
 const webpack = require("webpack");
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
-const MinifyPlugin = require("babel-minify-webpack-plugin");
 
 
 
 module.exports = {
-  entry: ["@babel/polyfill", entryFile],
+  entry: entryFile,
   output: {
     path: outputDir,
     publicPath: "/",
@@ -54,19 +53,11 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          {
-            loader: "url-loader",
-          },
-        ],
+        type: 'asset/resource',
       },
       { 
         test: /\.(otf|ttf)$/, 
-        use: [
-          { 
-            loader: 'url-loader?limit=100000', 
-          },
-        ],
+        type: 'asset/resource', 
       }
     ],
   },

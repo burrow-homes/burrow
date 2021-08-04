@@ -5,7 +5,7 @@ import "../../utilities";
 import "../../utilities.css";
 import "./InboxPage.css";
 import { socket } from "../../client-socket.js";
-import { Link } from "@reach/router";
+import { Link } from "@gatsbyjs/reach-router";
 const has = require("lodash/has");
 
 

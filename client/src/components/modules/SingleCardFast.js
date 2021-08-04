@@ -5,7 +5,7 @@ import "../../utilities";
 import "./SingleCard.css";
 import { formatDate, calculateAge, get, post } from "../../utilities";
 //import { duration } from "../../../../node_modules/moment";
-import { Link } from "@reach/router";
+import { Link } from "@gatsbyjs/reach-router";
 import NewListing from "./NewListing";
 import Popup from "reactjs-popup";
 

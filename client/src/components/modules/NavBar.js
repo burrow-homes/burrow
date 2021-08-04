@@ -5,7 +5,7 @@ import "../../utilities.css";
 import Popup from "reactjs-popup";
 import LoginPage from "../pages/LoginPage";
 import RegistrationPage from "../pages/RegistrationPage";
-import { Link,  navigate } from "@reach/router";
+import { Link,  navigate } from "@gatsbyjs/reach-router";
 import { GoogleSearchBar } from "./SearchBar";
 import { get, post } from "../../utilities";
 import NewListing from "../modules/NewListing";
